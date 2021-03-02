@@ -1,6 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager,\
-                                        PermissionsMixin
+                                        PermissionsMixin, Group
+
+
+# doctor_group, created = Group.objects.get_or_create(name=list_group)
+Group.objects.get_or_create(name='Cashier')
+Group.objects.get_or_create(name='Booker')
+Group.objects.get_or_create(name='Sales_assistant')
 
 
 class UserManager(BaseUserManager):
@@ -29,9 +35,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     """Custom user model that support using email instead of username"""
     email = models.EmailField(max_length=255, unique=True)
     name = models.CharField(max_length=255)
-    sales_assistant = models.BooleanField(default=None, null=True)
-    Cashier = models.BooleanField(default=None, null=True)
-    booker = models.BooleanField(default=None, null=True)
     is_active = models.BooleanField(default=True, null=True)
     is_staff = models.BooleanField(default=False, null=True)
 

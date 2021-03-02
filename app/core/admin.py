@@ -7,13 +7,13 @@ from . import models
 
 class UserAdmin(BaseUserAdmin):
     ordering = ['id']
-    list_display = ['email', 'name', 'sales_assistant', 'Cashier', 'booker']
+    list_display = ['email', 'name']
     fieldsets = (
-        (None, {'fields': ('email', 'name', 'sales_assistant',
-                           'Cashier', 'booker')}),
+        (None, {'fields': ('email', 'name',)}),
         (
             _('Permissions'),
-            {'fields': ('is_active', 'is_staff', 'is_superuser')}
+            {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups',
+                        'user_permissions')}
          ),
         (_('Important dates'), {'fields': ('last_login',)})
     )

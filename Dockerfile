@@ -8,6 +8,9 @@ RUN apk add --update --no-cache postgresql-client
 RUN apk add --update --no-cache --virtual .tmp-build-deps \
    gcc libc-dev linux-headers postgresql-dev
 RUN pip install -r /requirements.txt
+#RUN pip install django-filter
+#RUN pip install django-crispy-forms
+
 RUN apk del .tmp-build-deps
 
 
