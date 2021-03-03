@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager,\
                                         PermissionsMixin, Group
 
 
-# doctor_group, created = Group.objects.get_or_create(name=list_group)
+# create group
 Group.objects.get_or_create(name='Cashier')
 Group.objects.get_or_create(name='Booker')
 Group.objects.get_or_create(name='Sales_assistant')

@@ -9,6 +9,7 @@ from django_filters import rest_framework as filters
 
 class OrderListAPIView(ListAPIView):
     permission_classes = [HasGroupPermission]
+    # set group that have permission
     required_groups = {
         'GET': ['Booker', 'Cashier', 'Sales_assistant'],
     }
@@ -20,6 +21,7 @@ class OrderListAPIView(ListAPIView):
 
 class OrderCreateAPIView(CreateAPIView):
     permission_classes = [HasGroupPermission]
+    # set group that have permission
     required_groups = {
         'GET': ['Cashier'],
         'POST': ['Cashier'],
@@ -32,6 +34,7 @@ class OrderCreateAPIView(CreateAPIView):
 
 class OrderUpdateAPIView(UpdateAPIView, RetrieveAPIView):
     permission_classes = [HasGroupPermission]
+    # set group that have permission
     required_groups = {
         'GET': ['Cashier', 'Sales_assistant'],
         'POST': ['Cashier', 'Sales_assistant'],
@@ -44,6 +47,7 @@ class OrderUpdateAPIView(UpdateAPIView, RetrieveAPIView):
 
 class ScoreCreateAPIView(CreateAPIView):
     permission_classes = [HasGroupPermission]
+    # set group that have permission
     required_groups = {
         'GET': ['Cashier'],
         'POST': ['Cashier'],

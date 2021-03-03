@@ -42,6 +42,7 @@ class OrderSerializer(serializers.ModelSerializer):
 class ScoreSerializer(serializers.ModelSerializer):
     """Serializer for the score object"""
 
+    # add field to representation
     price_product = serializers.SerializerMethodField(
                                     method_name='get_price_product')
     title_product = serializers.SerializerMethodField(
